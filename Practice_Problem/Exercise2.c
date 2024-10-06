@@ -23,9 +23,9 @@ int isFull(StackType *s){
 }
 
 // 스택에 값을 넣는 함수: push
-void push(StackType *s, int value){
+void push(StackType *s, int element){
     if(!isFull(s)){
-        s->data[++(s->top)] = value;
+        s->data[++(s->top)] = element;
     }
     else{
         printf("스택이 가득 찼습니다.\n");
@@ -45,18 +45,17 @@ int pop(StackType *s){
 
 
 int main(){
-    StackType
- stack;
-    int size, value;
+    StackType stack;
+    int num = 0, element;
 
     initStack(&stack);
     printf("정수 배열의 크기: ");
-    scanf("%d", &size);
+    scanf("%d", &num);
 
-    printf("%d개의 정수를 입력하시오: ", size);
-    for(int i = 0; i < size; i++){
-        scanf("%d", &value);
-        push(&stack, value);
+    printf("%d개의 정수를 입력하시오: ", num);
+    for(int i = 0; i < num; i++){
+        scanf("%d", &element);
+        push(&stack, element);
     }
 
     printf("반전된 정수 배열: ");
