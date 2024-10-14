@@ -1,0 +1,9 @@
+image: gitpod/workspace-full
+
+tasks:
+  - init: echo "Setting upenviroment..."
+  - command: gcc -o my_program main.c && ./my_program
+
+ports:
+  - port: 8080
+  - onOpen: open-preview
