@@ -7,7 +7,7 @@ typedef struct {
 	int expon;
 } polynomial;
 
-polynomial terms[MAX_TERMS] = { { 8,3 },{ 7,2 },{ 1,1 },{ 10,0 },{ 3,2 },{ 1,0 } };
+polynomial terms[MAX_TERMS] = { { 8,3 },{ 7,1 },{ 1,0 },{ 10,3 },{ 3,2 },{ 1,0 } };
 int avail = 6;
 
 char compare(int a, int b){
@@ -73,7 +73,7 @@ void print_poly(int s, int e){
 }
 
 int main(void){
-	int As = 0, Ae = 3, Bs = 4, Be = 5, Cs, Ce;
+	int As = 0, Ae = 2, Bs = 3, Be = 5, Cs, Ce;
 	poly_add2(As, Ae, Bs, Be, &Cs, &Ce);
 	print_poly(As, Ae);
 	print_poly(Bs, Be);
