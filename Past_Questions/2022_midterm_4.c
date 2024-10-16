@@ -39,41 +39,38 @@ int pop(StackType *s){
 }
 
 int peek(StackType *s){
-    if(s->top == -1){
-        fprintf(stderr, "Stack is Empty \n");
-        exit(1);
-    }
-    else return s->data[s->top];
+    if(is_empty(s)){
+		fprintf(stderr, "Stack is Empty\n");
+		exit(1);
+	}
+	else{
+		return s->data[s->top];
+	}
 }
 
 void remove_stack(StackType *s){
-    if(s->top == -1){
-        fprintf(stderr, "Stack is Empty \n");
-        exit(1);
-    }
+    if(is_empty(s)) return;
 
-    int *unique = (int *)malloc(s->capacity * sizeof(int));
-    int unique_top = -1;
+	StackType unique;
+	init_stack(&unique);
 
-    for(int i = 0; i <= s->top ; i++){
-        int is_duplicate = 0;
+	while(!is_empty(s)){
+		int value = pop(s);
+		if(is_empty(&unique) || peek(&unique) != value){
+			push(&unique, value);
+		}
+	}
 
-        for(int j = 0; j <= unique_top; j++){
-            if(s->data[i] == unique[j]){
-                is_duplicate = 1;
-                break;
-            }
-        }
+	while(!is_empty(&unique)){
+		push(s, pop(&unique));
+	}
 
-        if(!is_duplicate){
-            unique[++unique_top] = s->data[i];
-        }
-    }
+	for(int i = 0; i <= s->top; i++){
+		printf("%d ", s->data[i]);
+	}
+	printf("\n");
 
-    for(int i = unique_top ; i >= 0; i--){
-        printf("%d\n", unique[i]);
-    }
-    free(unique);
+	free(unique.data);
 }
 
 int main(void){
