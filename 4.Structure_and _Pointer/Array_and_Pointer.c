@@ -10,7 +10,7 @@ void get_integers(int list[]){
 
 int cal_sum(int list[]){
     int sum = 0;
-    for(int i = 0; i < SIZE; i++){
+    for(int i = 0; i < SIZE; ++i){
         sum += *(list + i);
     }
     return sum;
