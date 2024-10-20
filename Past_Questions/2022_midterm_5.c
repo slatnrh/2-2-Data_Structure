@@ -22,18 +22,18 @@ ListNode* insert_last(ListNode* head, int data){
 
     return head; 
 }
+
 ListNode *search(ListNode *head, int data){
-    ListNode *current = head;
-    while(current != NULL){
-        if(current->data == data){
-            return current;
+    ListNode *node = head;
+    while(node != NULL){
+        if(node->data == data){
+            return node;
         }
-        current = current->link;
+        node = node->link;
     }
 
     return NULL;
 }
-
 
 int main() {
     ListNode *head = NULL;

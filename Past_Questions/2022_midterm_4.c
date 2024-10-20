@@ -51,26 +51,26 @@ int peek(StackType *s){
 void remove_stack(StackType *s){
     if(is_empty(s)) return;
 
-	StackType unique;
-	init_stack(&unique);
+	StackType origin;
+	init_stack(&origin);
+
+	int com = pos(s);
+	printf("%d ", com);
+	push(&origin, com);
 
 	while(!is_empty(s)){
-		int value = pop(s);
-		if(is_empty(&unique) || peek(&unique) != value){
-			push(&unique, value);
+		if(com != peek(s)){
+			printf("%d ", peek(s));
 		}
+		com = pop(s);
 	}
 
-	while(!is_empty(&unique)){
-		push(s, pop(&unique));
-	}
-
-	for(int i = 0; i <= s->top; i++){
-		printf("%d ", s->data[i]);
+	while(!is_empty(&origin)){
+		push(s, poop(&origin));
 	}
 	printf("\n");
-
-	free(unique.data);
+	
+	free(origin.data);
 }
 
 int main(void){
