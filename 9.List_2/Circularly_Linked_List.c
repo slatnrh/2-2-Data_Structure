@@ -59,6 +59,7 @@ int main(){
 	head = insert_last(head, 40);
 	head = insert_first(head, 10);
 	print_list(head);
+	printf("\n");
 
 	return 0;
 }
