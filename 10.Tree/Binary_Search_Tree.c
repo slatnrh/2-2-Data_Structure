@@ -7,7 +7,7 @@ typedef struct TreeNode{
 	struct TreeNode *left, *right;
 } TreeNode;
 
-TreeNode *search(TreeNode *node, int key){
+TreeNode* search(TreeNode *node, int key){
 	if(node == NULL) return NULL;
 	if(key == node->key) return node;
 	else if(key < node->key)
@@ -16,14 +16,14 @@ TreeNode *search(TreeNode *node, int key){
 		return search(node->right, key);
 }
 
-TreeNode *new_node(int item){
+TreeNode* new_node(int item){
 	TreeNode *temp = (TreeNode *)malloc(sizeof(TreeNode));
 	temp->key = item;
 	temp->left = temp->right = NULL;
 	return temp;
 }
 
-TreeNode *insert_node(TreeNode *node, int key){
+TreeNode* insert_node(TreeNode *node, int key){
 	if(node == NULL) return new_node(key);
 
 	if(key < node->key)
@@ -34,7 +34,7 @@ TreeNode *insert_node(TreeNode *node, int key){
 	return node;
 }
 
-TreeNode *min_value_node(TreeNode *node){
+TreeNode* min_value_node(TreeNode *node){
 	TreeNode *current = node;
 
 	while(current->left != NULL)
@@ -43,7 +43,7 @@ TreeNode *min_value_node(TreeNode *node){
 	return current;
 }
 
-TreeNode *delete_node(TreeNode *root, int key){
+TreeNode* delete_node(TreeNode *root, int key){
 	if(root == NULL) return root;
 
 	if(key < root->key)
