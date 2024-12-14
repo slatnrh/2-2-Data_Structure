@@ -68,17 +68,17 @@ int compare(const void* a, const void* b){
 }
 
 // kruskal의 최소 비용 신장 트리 프로그램
-void kruskal(GraphType* g){
+void kruskal(GraphType* g, int vertex_count){
 	int edge_accepted = 0;		// 현재까지 선택된 간선의 수	
 	int uset, vset;		// 정점 u와 정점 v의 집합 번호
 	struct Edge e;
 
-	set_init(g->n);		// 집합 초기화
+	set_init(vertex_count);		// 집합 초기화
 	qsort(g->edges, g->n, sizeof(struct Edge), compare);
 
 	printf("크루스칼 최소 신장 트리 알고리즘 \n");
 	int i = 0;
-	while(edge_accepted < (g->n - 1)){		// 간선의 수 < (n-1)
+	while(edge_accepted < (vertex_count - 1)){		// 간선의 수 < (n-1)
 		e = g->edges[i];
 		uset = set_find(e.start);		// 정점 u의 집합 번호
 		vset = set_find(e.end);		// 정점 v의 집합 번호
@@ -106,7 +106,8 @@ int main(){
 	insert_edge(g, 6, 3, 18);
 	insert_edge(g, 6, 4, 25);
 
-	kruskal(g);
+	int vertex_count = 7;
+	kruskal(g, vertex_count);
 	free(g);
 
 	return 0;
