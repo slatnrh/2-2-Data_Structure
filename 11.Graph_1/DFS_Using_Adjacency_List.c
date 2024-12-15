@@ -18,8 +18,8 @@ int visited[MAX_VERTICES];
 
 void init(GraphType* g){
 	g->n = 0;
-	for(int i = 0; i < MAX_VERTICES; i++)
-		g->adj_list[i] = NULL;
+	for(int v = 0; v < MAX_VERTICES; v++)
+		g->adj_list[v] = NULL;
 }
 
 void insert_vertex(GraphType* g, int v){
