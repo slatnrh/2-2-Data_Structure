@@ -79,6 +79,9 @@ void bfs_mat(GraphType* g, int v){
 	QueueType q;
 
 	queue_init(&q);		// 큐 초기화
+	for (int i = 0; i < MAX_VERTICES; i++) // 방문 배열 초기화
+        visited[i] = FALSE;
+	
 	visited[v] = TRUE;		// 정점 v 방문 표시
 	printf("%d 방문 -> ", v);
 	enqueue(&q, v);		// 시작 정점을 큐에 저장
