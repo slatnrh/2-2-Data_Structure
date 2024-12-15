@@ -12,7 +12,7 @@ typedef struct{		// 큐 ADT 구현
 } LinkedQueueType;
 
 void init(LinkedQueueType *q){
-	q->front = q->rear = 0;
+	q->front = q->rear = NULL;
 }
 
 int is_empty(LinkedQueueType *q){
